@@ -1,5 +1,7 @@
 {% extends 'notes_app/base.html' %}
+
 {% block content %}
+
 <p>Topics</p>
 <ul>
 	{% for topic in topics %}
@@ -10,4 +12,7 @@
 		<li>No topics have been added yet.</li>
 	{% endfor %}
 </ul>
+
+	<a href='{% url "notes_app:new_topic"  %}'>Add a new topic:</a>
+
 {% endblock content %}
