@@ -1,0 +1,47 @@
+#login {
+	font-family: 'PT Sans';
+	font-weight: bold;
+	display: block;
+	text-align: center;
+	font-size: 20;
+}
+
+#wrapper {
+	padding: 0 35%;
+}
+
+#form {
+	font-family: 'PT Sans';
+	display: block;
+	text-align: right;
+}
+
+.submit {
+	color: white;
+	background-color: black;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 8px 25px;
+	margin: 20px;
+	font-family: 'PT Sans';
+	font-size: 20;
+}
+
+.submit:hover {
+	color: black;
+	background-color: white;
+	outline: 1px solid;
+}
+
+#fields {
+	display: block;
+	text-align: center;
+}
+
+#id_username, #id_password, #id_password1, #id_password2, #id_email {
+	width: 250px;
+	height: 40px;
+	font-family: 'PT Sans';
+	font-size: 20;
+	font-weight: bold;
+}

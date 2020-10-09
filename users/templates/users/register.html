@@ -1,13 +1,23 @@
 {% extends 'notes_app/base.html' %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/login.css' %}" type="text/css">
+<div id='login'>Sign Up</div>
+	<div id='wrapper'>
+		<div id='form'>
 
-	<form method="post" action="{% url 'users:register' %}">
-	{% csrf_token %}
-	{{ form.as_p }}
+			<form method="post" action="{% url 'users:register' %}">
+				{% csrf_token %}
+				{{ form.as_p }}
 
-	<button name="submit">Register</button>
-	<input type="hidden" name="next" value="{% url 'notes_app:index' %}" />
-</form>
+				<div id='fields'>
+					<button class='submit' name="submit">Register</button>
+				</div>
+
+				<input type="hidden" name="next" value="{% url 'notes_app:index' %}" />
+			</form>
+		</div>
+	</div>
 
 {% endblock content %}

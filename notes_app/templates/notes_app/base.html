@@ -1,12 +1,14 @@
 <p>
-	<a href="{% url 'notes_app:index' %}">.Notes</a>
-<a href="{% url 'notes_app:topics' %}">Topics</a>
-	{% if user.is_authenticated %}
-		Hello, {{ user.username }}!
-		<a href="{% url 'users:logout' %}">Log Out</a>
-	{% else %}
-		<a href="{% url 'users:register' %}">Register</a>
-		<a href="{% url 'users:login' %}">Log In</a>
-	{% endif %}
-</p>
+	{% load static %}
+	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/base.css' %}" type="text/css">
+	<p>
+		<a href="{% url 'notes_app:index' %}">
+			<img id='logo' src="{% static 'notes_app/css/img/logo.svg' %}" />
+		</a>
+	</p>
 {% block content %}{% endblock content %}
+<p id='languages'>
+	<a id='russian' href="{% url 'notes_app:index' %}">посмотреть на русском</a>
+	<a id='english' href="{% url 'notes_app:index' %}">watch in english</a>
+	<a id='belarus' href="{% url 'notes_app:index' %}">паглядзець на беларускай</a>
+</p>
