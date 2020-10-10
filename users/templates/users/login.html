@@ -3,8 +3,8 @@
 {% load static %}
 <link rel="stylesheet" media="all" href="{% static 'notes_app/css/login.css' %}" type="text/css">
 <div id='login'>Log In</div>
-	<div id='wrapper'>
-		<div id='form'>
+	<div class='wrapper'>
+		<div class='form'>
 			{% if form.errors %}
 			<p>Your username and password didn't match. Please try again.</p>
 			{% endif %}
@@ -13,7 +13,7 @@
 			{% csrf_token %}
 			{{ form.as_p }}
 
-			<div id='fields'>
+			<div class='fields'>
 				<button class='submit' name="submit">Submit</button>
 			</div>
 			<input type="hidden" name="next" value="{% url 'notes_app:index' %}" />

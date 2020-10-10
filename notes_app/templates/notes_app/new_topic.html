@@ -1,9 +1,16 @@
 {% extends 'notes_app/base.html' %}
 {% block content %}
-<p>Add a new topic:</p>
-<form action="{% url 'notes_app:new_topic' %}" method='post'>
-{% csrf_token %}
-{{ form.as_p }}
-<button name="submit">Add topic</button>
+{% load static %}
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/topics.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/login.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/index.css' %}" type="text/css">
+<a class='topics_link' href='{% url "notes_app:topics"  %}'>Back to Topics</a><br />
+<p class='center_text'>Name Your Topic:</p>
+<form class='center_text' action="{% url 'notes_app:new_topic' %}" method='post'>
+	<div class='form'>
+		{% csrf_token %}
+		{{ form.as_p }}
+	</div>
+<button class='submit' name="submit">Add topic</button>
 </form>
 {% endblock content %}

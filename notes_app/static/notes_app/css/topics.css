@@ -15,3 +15,23 @@
 	background-color: black;
 	color: white;
 }
+
+.center_text {
+	color: black;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    padding: 5px 0;
+    display: block;
+	text-align: center;
+    margin: 0 35%;	
+}
+
+#id_text {
+	width: 250px;
+	height: 40px;
+	font-family: 'PT Sans';
+	font-size: 20;
+	font-weight: bold;
+	display: block;
+    margin: 0 auto;
+}
