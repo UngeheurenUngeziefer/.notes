@@ -1,0 +1,17 @@
+#topic {
+	font-size: 20;
+	display: block;
+	text-align: center;
+    margin: 0 35%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-family: 'PT Sans';
+    padding: 5px 0;
+}
+
+#topic:hover {
+	outline: 1px solid;
+	background-color: black;
+	color: white;
+}

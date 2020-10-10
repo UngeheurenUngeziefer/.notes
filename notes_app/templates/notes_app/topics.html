@@ -1,18 +1,19 @@
 {% extends 'notes_app/base.html' %}
 
 {% block content %}
-
-<p>Topics</p>
-<ul>
+{% load static %}
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/topics.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/index.css' %}" type="text/css">
+<a class='topics_link' href='{% url "notes_app:new_topic"  %}'>+ Add a new topic</a>
+<p>
 	{% for topic in topics %}
-		<li>
-			<a href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a>
-		</li>
+		<p>
+			<a id='topic' href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a>
+		</p>
 	{% empty %}
 		<li>No topics have been added yet.</li>
 	{% endfor %}
-</ul>
+</p>
 
-	<a href='{% url "notes_app:new_topic"  %}'>Add a new topic:</a>
 
 {% endblock content %}
