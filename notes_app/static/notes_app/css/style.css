@@ -1,6 +1,6 @@
 .text, .link, #logout_link, #index_text,
  .buttons, #signup_form, #topic, #date,
- .submit, #note {
+ .submit, #note, .topics {
 	font-family: 'PT Sans';
 	font-weight: bold;
 	text-align: center;
@@ -75,7 +75,7 @@
 	text-align: center;
 }
 
-#date, .whitespace, #note, #edit, .horizontal_space {
+#date, .whitespace, #note, .edit, .horizontal_space {
 	float: left;	
 }
 
@@ -94,13 +94,13 @@
   outline: 1px solid;
 }
 
-#edit {
+.edit {
   max-width: 3vw;
   text-align: left;
   padding-right: 1%;
 }
 
-#date, #note, #edit {
+#date, #note, .edit {
     -webkit-box-sizing: border-box;  
     -moz-box-sizing: border-box;  
     box-sizing: border-box;   
@@ -169,4 +169,26 @@
 	height: 40px;
 	font-size: 20;
 	font-weight: bold;
+}
+
+.center_block {
+	display: block;
+	text-align: center;
+}
+
+.topics {
+	width: 70%;
+	font-weight: normal;
+	text-align: center;
+	word-wrap: break-word;
+	vertical-align: middle;
+	margin: 0 1%;
+	outline: 1px solid;
+	float: left;
+}
+
+.topics:hover {
+	color: black;
+	background-color: white;
+	outline: 1px solid;
 }

@@ -49,6 +49,13 @@ def new_topic(request):
 	return render(request, 'notes_app/new_topic.html', context)
 
 @login_required
+def delete_topic(request, topic_id):
+	topic = get_object_or_404(Topic, id=topic_id)
+	topic.delete()
+	return HttpResponseRedirect(reverse('notes_app:topics'))
+
+
+@login_required
 def new_entry(request, topic_id):
 	'''Add New Entry to Topic'''
 	topic = Topic.objects.get(id=topic_id)

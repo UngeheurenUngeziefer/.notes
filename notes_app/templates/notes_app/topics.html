@@ -6,9 +6,14 @@
 <a class='link' href='{% url "notes_app:new_topic"  %}'>+ Add a new topic</a>
 <p>
 	{% for topic in topics %}
-		<p>
-			<a id='topic' href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a>
+		<p id="date">
+    		<div class="whitespace"></div>
+			<a class='topics' href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a>
+			<a href="{% url 'notes_app:delete_topic' topic.id %}">
+				<img src="{% static 'notes_app/css/img/delete.png' %}"></img>
+			</a>
 		</p>
+
 	{% empty %}
 		<li class='text'>No topics have been added yet.</li>
 	{% endfor %}
