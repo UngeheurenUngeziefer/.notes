@@ -45,3 +45,8 @@
 	font-size: 20;
 	font-weight: bold;
 }
+
+#center_button {
+	display: block;
+	text-align: center;
+}

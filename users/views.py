@@ -20,23 +20,6 @@ def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('notes_app:index'))
 
-# def register(request):
-# 	if request.method != 'POST':
-# 		# Display blank registration form.
-# 		form = UserCreationForm()
-# 	else:
-# 		# Обработка заполненной формы.
-# 		form = UserCreationForm(data=request.POST)
-# 		if form.is_valid():
-# 			new_user = form.save()
-# 			authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
-# 			login(request, authenticated_user)
-# 			return HttpResponseRedirect(reverse('notes_app:index'))
-
-# 	context = {'form': form}
-# 	return render(request, 'users/register.html', context)
-
-
 def register(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -57,7 +40,7 @@ def register(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return render(request, 'users/confirm_email.html')
     else:
         form = SignupForm()
     return render(request, 'users/register.html', {'form': form})
@@ -73,6 +56,7 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
+        return render(request, 'users/thank_confirm.html')
         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return render(request, 'users/invalid_link.html')

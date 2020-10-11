@@ -1,4 +1,13 @@
-#date{
+#topic {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'PT Sans';
+  font-weight: bold;
+
+
+}
+
+#date {
   width: 14%;
   border: solid 1px #000000;
   background-color: #0066CC;
@@ -11,7 +20,7 @@
   color: white;
 }
 
-#note{
+#note {
   width: 70%;
   border: solid 1px #000000;
   background-color: #66CC00;

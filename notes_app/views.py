@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
+from django.shortcuts import get_object_or_404
 
 def index(request):
 	"""Home Page"""
@@ -85,3 +86,10 @@ def edit_entry(request, entry_id):
 
 	context = {'entry': entry, 'topic': topic, 'form': form}
 	return render(request, 'notes_app/edit_entry.html', context)
+
+@login_required
+def delete_entry(request, entry_id):
+    entry = get_object_or_404(Entry, id=entry_id)
+    topic = entry.topic
+    entry.delete()
+    return HttpResponseRedirect(reverse('notes_app:topic', args = [topic.id]))

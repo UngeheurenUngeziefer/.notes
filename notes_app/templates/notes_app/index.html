@@ -1,11 +1,10 @@
 {% extends 'notes_app/base.html' %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" media="all" href="{% static 'notes_app/css/base.css' %}" type="text/css">
-<link rel="stylesheet" media="all" href="{% static 'notes_app/css/index.css' %}" type="text/css">
+	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
 	{% if user.is_authenticated %}
-		<p id='welcome_text'>Welcome, {{ user.username }}!</p>
-		<a class='topics_link' href="{% url 'notes_app:topics' %}">Your Topics</a>
+		<p class='text'>Welcome, {{ user.username }}!</p>
+		<a class='link' href="{% url 'notes_app:topics' %}">Your Topics</a>
 		<a id='logout_link' href="{% url 'users:logout' %}">Log Out</a>
 	{% else %}
 		<p id='index_text'>Hi there! This webapp created for people who want to store their notes online. But it not only notes. You have a possibility to create a theme’s (e.g. Programming),

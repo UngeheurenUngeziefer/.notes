@@ -1,15 +1,17 @@
 {% extends 'notes_app/base.html' %}
 
 {% block content %}
+{% load static %}
+	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
+	
+<p><a class='link' href="{% url 'notes_app:topic' topic.id %}">< Back to {{ topic }}</a></p>
 
-<p><a href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a></p>
+<p class='text'>Edit note:</p>
 
-<p>Edit entry:</p>
-
-<form action="{% url 'notes_app:edit_entry' entry.id %}" method='post'>
+<form class='center_text' action="{% url 'notes_app:edit_note' note.id %}" method='post'>
 	{% csrf_token %}
 	{{ form.as_p }}
-	<button name="submit">Save Changes</button>
+	<button class='submit' name="submit">Save Changes</button>
 </form>
 
 {% endblock content %}

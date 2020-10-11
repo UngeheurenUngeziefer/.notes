@@ -2,28 +2,34 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" media="all" href="{% static 'notes_app/css/topic.css' %}" type="text/css">
+	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
 
-<p id='topic'>{{ topic }}</p>
+<p class='text'>{{ topic }}</p>
 	<p>
-		<a class='add_new_note' href="{% url 'notes_app:new_entry' topic.id %}">Add New Note</a>
+		<a class='link' href="{% url 'notes_app:topics' %}"> < Topics List</a>
+		<a class='link' href="{% url 'notes_app:new_entry' topic.id %}"> + Add New Note</a>
 	</p>
 	{% for entry in entries %}
 <body>
-    <div id="date">{{ entry.date_added|date:'d M Y / H:i' }}</div>
+    <div id="date">{{ entry.date_added|date:'d M Y | H:i' }}</div>
     <div class="whitespace"></div>
 
     <div id="note">{{ entry.text|linebreaks }}
     </div>
 
     <div class="whitespace"></div>
-    <div id="edit">
-    	<a href="{% url 'notes_app:edit_entry' entry.id %}">Edit Entry</a>
+    <div>
+    	<a href="{% url 'notes_app:edit_entry' entry.id %}">
+    		<img id='edit' src="{% static 'notes_app/css/img/edit.png' %}"></img>
+    	</a>
+    	<a href="{% url 'notes_app:delete_entry' entry.id %}">
+    		<img id='edit' src="{% static 'notes_app/css/img/delete.png' %}"></img>
+    	</a>
     </div>
 
 	<div class='horizontal_space'></div>
   {% empty %}
-	<li>
+	<li class='text'>
 		There are no entries for this topic yet.
 	</li>
 	{% endfor %}
