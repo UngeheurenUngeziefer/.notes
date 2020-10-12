@@ -7,8 +7,7 @@
 		<a class='link' href="{% url 'notes_app:topics' %}">Your Topics</a>
 		<a id='logout_link' href="{% url 'users:logout' %}">Log Out</a>
 	{% else %}
-		<p id='index_text'>Hi there! This webapp created for people who want to store their notes online. But it not only notes. You have a possibility to create a theme’s (e.g. Programming),
-		and milestones (e.g. Learn Basics, Create calculator).</p>
+		<p id='index_text'>Hi there! This webapp created to store online notes and topics here. Also there are system of registration, logging, email-confirmation, topics creation/deletion, notes for every topic creation/editing/deliting.</p>
 		<p id='buttons'>
 			<a class='buttons' href="{% url 'users:login' %}">Log In</a>
 			<a class='buttons' href="{% url 'users:register' %}">Sign Up</a>

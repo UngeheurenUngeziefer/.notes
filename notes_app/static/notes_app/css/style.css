@@ -75,8 +75,12 @@
 	text-align: center;
 }
 
-#date, .whitespace, #note, .edit, .horizontal_space {
+#date, .whitespace, .whitespace_topic, #note, .edit, .horizontal_space {
 	float: left;	
+}
+
+.whitespace_topic {
+	width: 100%;
 }
 
 #date {
@@ -178,17 +182,32 @@
 
 .topics {
 	width: 70%;
-	font-weight: normal;
+	height: 40px;
 	text-align: center;
 	word-wrap: break-word;
 	vertical-align: middle;
 	margin: 0 1%;
 	outline: 1px solid;
 	float: left;
+	padding-top: 3%;
+	padding-left: 14.5%;
+	background-color: black;
+	color: white;
+	text-decoration: none;
 }
 
 .topics:hover {
 	color: black;
 	background-color: white;
 	outline: 1px solid;
+}
+
+.center_topics {
+    margin: 0 34.7%;
+}
+
+.delete {
+	padding-left: 1%;
+	max-width: 2vw;
+
 }

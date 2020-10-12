@@ -2,22 +2,20 @@
 
 {% block content %}
 {% load static %}
-	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
 <a class='link' href='{% url "notes_app:new_topic"  %}'>+ Add a new topic</a>
-<p>
 	{% for topic in topics %}
-		<p id="date">
-    		<div class="whitespace"></div>
+		<p class='center_topics'>
 			<a class='topics' href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a>
 			<a href="{% url 'notes_app:delete_topic' topic.id %}">
-				<img src="{% static 'notes_app/css/img/delete.png' %}"></img>
+				<img class='delete' src="{% static 'notes_app/css/img/delete.png' %}"></img>
 			</a>
+			<p class='whitespace_topic'></p>
 		</p>
 
 	{% empty %}
 		<li class='text'>No topics have been added yet.</li>
 	{% endfor %}
 </p>
-
 
 {% endblock content %}
