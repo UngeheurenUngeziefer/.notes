@@ -25,7 +25,6 @@ os.path.join(BASE_DIR, 'static'),
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# <<<<<<< HEAD
 SECRET_KEY = 'weqqe^-x6ykx-=y*nxs+1dbwt#bqx=u&hma0^gv6)be8)4z%0+'
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_HSTS_SECONDS = 31536000
@@ -35,9 +34,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
 SECURE_REFERRER_POLICY = 'same-origin'
-# =======
-SECRET_KEY = 'key'
-# >>>>>>> 1fc827e9697f0382d3375f9261773ab08e296fd7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
