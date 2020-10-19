@@ -5,7 +5,6 @@ from . import views
 urlpatterns = [
 	url(r'^login', LoginView.as_view(template_name='users/login.html'), name='login'),
 	url(r'^logout', views.logout_view, name='logout'),
-	# url(r'^register/', views.register, name='register'),
-	url(r'^register/', RegisterView.as_view(template_name='users/register.html'), name='register'),
+	url(r'^register/', views.register, name='register'),
     url(r'^activate/(?P<uid64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/', views.activate, name='activate'),
 ]
