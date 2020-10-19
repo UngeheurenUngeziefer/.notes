@@ -41,7 +41,8 @@ def register(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return render(request, 'users/confirm_email.html')
+            context = {'uid64':uid64, 'token':token}
+            return render(request, 'users/confirm_email.html', context)
     else:
         form = SignupForm()
     return render(request, 'users/register.html', {'form': form})
@@ -57,9 +58,7 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        context = {'uid64':uid64, 'token':token}
-        return render(request, 'users/thank_confirm.html', context)
+        return render(request, 'users/thank_confirm.html')
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        context = {'uid64':uid64, 'token':token}
-        return render(request, 'users/invalid_link.html', context)
+        return render(request, 'users/invalid_link.html')
