@@ -57,7 +57,9 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        return render(request, 'users/thank_confirm.html')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        context = {'uidb64':uidb64, 'token':token}
+        return render(request, 'users/thank_confirm.html', context)
+        # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        return render(request, 'users/invalid_link.html')
+        context = {'uidb64':uidb64, 'token':token}
+        return render(request, 'users/invalid_link.html', context)
