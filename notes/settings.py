@@ -21,11 +21,7 @@ ALLOWED_HOSTS = ['*']
 # )
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'notes_app/static/notes_app/css'),
-    # Add to this list all the locations containing your static files 
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 # Quick-start development settings - unsuitable for production
@@ -138,6 +134,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    normpath(join(BASE_DIR, 'static')),
+    normpath(join(BASE_DIR, 'upload')),
+)
+
+
+
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
