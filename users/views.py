@@ -46,9 +46,9 @@ def register(request):
         form = SignupForm()
     return render(request, 'users/register.html', {'form': form})
 
-def activate(request, uidb64, token):
+def activate(request, uid64, token):
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_text(urlsafe_base64_decode(uid64))
         user = User.objects.get(pk=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
