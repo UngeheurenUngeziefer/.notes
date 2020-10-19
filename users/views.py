@@ -57,7 +57,9 @@ def activate(request, uid64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        return render(request, 'users/thank_confirm.html')
+        # return render(request, 'users/thank_confirm.html')
+        return HttpResponseRedirect(reverse('users:thank_confirm', args=[uid64, token]))
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        return render(request, 'users/invalid_link.html')
+        # return render(request, 'users/invalid_link.html')
+        return HttpResponseRedirect(reverse('users:invalid_link', args=[uid64, token]))
