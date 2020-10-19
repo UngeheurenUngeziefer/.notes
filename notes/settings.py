@@ -11,7 +11,7 @@ if os.getcwd() == '/app':
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Разрешены все заголовки хостов.
-ALLOWED_HOSTS = ['djangonotesdb.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Конфигурация статических ресурсов
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
