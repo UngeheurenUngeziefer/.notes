@@ -41,8 +41,7 @@ def register(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            context = {'uid64':uid64, 'token':token}
-            return render(request, 'users/confirm_email.html', context)
+            return render(request, 'users/confirm_email.html')
     else:
         form = SignupForm()
     return render(request, 'users/register.html', {'form': form})
