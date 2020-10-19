@@ -2,13 +2,13 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
+<link rel="stylesheet" media="all" href="{% static 'style.css' %}" type="text/css">
 <a class='link' href='{% url "notes_app:new_topic"  %}'>+ Add a new topic</a>
 	{% for topic in topics %}
 		<p class='center_topics'>
 			<a class='topics' href="{% url 'notes_app:topic' topic.id %}">{{ topic }}</a>
 			<a href="{% url 'notes_app:delete_topic' topic.id %}">
-				<img class='delete' src="{% static 'notes_app/css/img/delete.png' %}"></img>
+				<img class='delete' src="{% static 'img/delete.png' %}"></img>
 			</a>
 			<p class='whitespace_topic'></p>
 		</p>

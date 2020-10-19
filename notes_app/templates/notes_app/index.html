@@ -1,7 +1,7 @@
 {% extends 'notes_app/base.html' %}
 {% block content %}
 {% load static %}
-	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
+	<link rel="stylesheet" media="all" href="{% static 'style.css' %}" type="text/css">
 	{% if user.is_authenticated %}
 		<p class='text'>Welcome, {{ user.username }}!</p>
 		<a class='link' href="{% url 'notes_app:topics' %}">Your Topics</a>

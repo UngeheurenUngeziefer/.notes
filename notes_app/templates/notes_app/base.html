@@ -1,9 +1,9 @@
 {% load static %}
-	<link rel="stylesheet" media="all" href="{% static 'notes_app/css/style.css' %}" type="text/css">
-	<link rel="icon" href="{% static 'notes_app/css/img/icon.svg' %}">
+	<link rel="stylesheet" media="all" href="{% static 'style.css' %}" type="text/css">
+	<link rel="icon" href="{% static '/img/icon.svg' %}">
 	<p>
 		<a href="{% url 'notes_app:index' %}">
-			<img id='logo' src="{% static 'notes_app/css/img/logo.svg' %}" />
+			<img id='logo' src="{% static '/img/logo.svg' %}" />
 		</a>
 	</p>
 {% block content %} {% endblock content %}
