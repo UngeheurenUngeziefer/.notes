@@ -46,20 +46,20 @@ def register(request):
         form = SignupForm()
     return render(request, 'users/register.html', {'form': form})
 
-def activate(request, uid64, token):
+def activate(request, uidb64, token):
     try:
-        uid = force_text(urlsafe_base64_decode(uid64))
-        user = User.objects.get(pk=uid64)
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
         login(request, user)
+        context = {'uidb64': uidb64, 'token': token}
         # return redirect('home')
-        # return render(request, 'users/thank_confirm.html')
-        return HttpResponseRedirect(reverse('users:thank_confirm', args=[uid64, token]))
+        return render(request, 'users/thank_confirm.html', context)
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        # return render(request, 'users/invalid_link.html')
-        return HttpResponseRedirect(reverse('users:invalid_link', args=[uid64, token]))
+        context = {'uidb64': uidb64, 'token': token}
+        return render(request, 'users/invalid_link.html', context)
