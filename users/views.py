@@ -35,8 +35,6 @@ def register(request):
             #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
             #     'token': account_activation_token.make_token(user),
             # })
-
-            
             message = render_to_string('users/acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -65,11 +63,10 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        # return render(request, 'users/thank_confirm.html', context)
-        return HttpResponseRedirect(reverse('users:thank_confirm', kwargs=[uidb64, token]))
+        context = {'uidb64': uidb64, 'token': token}
+        return render(request, 'users/thank_confirm.html', context)
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        # context = {'uidb64': uidb64, 'token': token}
-        # return render(request, 'users/invalid_link.html', context)
-        return HttpResponseRedirect(reverse('users:invalid_link', kwargs=[uidb64, token]))
+        context = {'uidb64': uidb64, 'token': token}
+        return render(request, 'users/invalid_link.html', context)
 
