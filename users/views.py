@@ -29,10 +29,18 @@ def register(request):
             user.save()
             current_site = get_current_site(request)
             mail_subject = 'Activate your blog account.'
+            # message = render_to_string('users/acc_active_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token': account_activation_token.make_token(user),
+            # })
+
+
             message = render_to_string('users/acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'uid': force_text(urlsafe_base64_encode(force_bytes(user.pk))),
                 'token': account_activation_token.make_token(user),
             })
 
@@ -64,3 +72,4 @@ def activate(request, uidb64, token):
         # context = {'uidb64': uidb64, 'token': token}
         # return render(request, 'users/invalid_link.html', context)
         return HttpResponseRedirect(reverse('users:invalid_link', args=[uidb64, token]))
+
