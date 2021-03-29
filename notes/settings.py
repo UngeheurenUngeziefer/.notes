@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'weqqe^-x6ykx-=y*nxs+1dbwt#bqx=u&hma0^gv6)be8)4z%0+'
+SECRET_KEY = ''
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 MAILER_EMAIL_BACKEND = EMAIL_BACKEND  
 EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_PASSWORD = 'kdrmzxwvjinonkui'  
+EMAIL_HOST_PASSWORD = ''  
 EMAIL_HOST_USER = 'jauhien.leaniuk@gmail.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
